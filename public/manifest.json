@@ -1,0 +1,45 @@
+{
+    "name": "Enafi",
+    "description": "Your one friend to get your work done",
+    "homepage_url": "https://enafi.com/",
+    "version": "0.1",
+    "manifest_version": 3,
+    "icons": {
+        "16": "images/skenicon-16x16.png",
+        "32": "images/skenicon-32x32.png",
+        "48": "images/skenicon-48x48.png"
+    },
+    "action": {
+        "default_title": "Enafi",
+        "default_popup": "html/popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "css/page.css"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
